@@ -24,7 +24,10 @@ namespace RpgStory
             Console.WriteLine("You face {0} their stats are {1} ATK {2} DEF {3} SPD {4} AGI",firstFight.Name,firstFight.ATK,firstFight.DEF,firstFight.SPD,firstFight.AGI);
 
             fightSequence(player, firstFight);
-            player.removeWeapon(player.Wep);
+            Console.WriteLine("{0} you are level {5} and you have {1} ATK {2} DEF {3} SPD {4} AGI", player.Name, player.ATK, player.DEF, player.SPD, player.AGI, player.Level);
+
+            player.giveWeapon(new Weapon(4, 0, 0, 0, "DoomShroom"));
+            Console.WriteLine("You equpied {0} This has a Bonus ATK of {1} your total ATK is {2}", player.Wep.Name, player.Wep.ATK, player.ATK);
         }
 
         private static Player characterBuilder(int skillPoints)
@@ -153,6 +156,11 @@ namespace RpgStory
                     Console.WriteLine("Your HP is {0}",player.HP);
                 }
                 takeDamage = true;
+            }
+
+            if(player.HP > 0)
+            {
+                player.levelUp(6);
             }
         }
 

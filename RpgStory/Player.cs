@@ -31,14 +31,14 @@ namespace RpgStory
             def = defi;
             spd = spdi;
             agi = agii;
-            hp = calcHP(DEF);
+            hp = calcHP();
             name = namei;
             level = calcLevel();
         }
 
-        private int calcHP(int def)
+        private int calcHP()
         {
-            return def * 5;
+            return def * 5 + 1;
         }
 
         private int calcLevel()
@@ -61,8 +61,12 @@ namespace RpgStory
 
         public void giveWeapon(Weapon weapon)
         {
+            if (wep != null)
+            {
+                removeWeapon(wep);
+            }
             wep = weapon;
-            addWeapon(wep, true);
+            addWeapon(wep);
         }
 
         public void giveDamage(Enemy enemy)
@@ -70,16 +74,14 @@ namespace RpgStory
             enemy.takeDamage(atk);
         }
 
-        public void addWeapon(Weapon weapon, bool reset)
+        public void addWeapon(Weapon weapon)
         {
-            if (reset)
-            {
-                atk += weapon.ATK;
-                def += weapon.DEF;
-                spd += weapon.SPD;
-                agi += weapon.AGI;
-            }
+            atk += weapon.ATK;
+            def += weapon.DEF;
+            spd += weapon.SPD;
+            agi += weapon.AGI;
         }
+
         public void removeWeapon(Weapon weapon)
         {
             atk -= weapon.ATK;
@@ -87,6 +89,52 @@ namespace RpgStory
             spd += weapon.SPD;
             agi += weapon.AGI;
             wep = null;
+        }
+
+        public void levelUp(int skillPoints)
+        {
+            string[] statNames = { "Attack", "Defence", "Speed", "Agility" };
+            Console.Clear();
+            for (int i = 0; i < 4; i++)
+            {
+                if (skillPoints == 0)
+                {
+                    break;
+                }
+                Console.WriteLine("You have {0} skill points to spend, Spend them wisely", skillPoints);
+                Console.WriteLine("How many skill points would you like in {0}", statNames[i]);
+                int input = Convert.ToInt16(Console.ReadLine());
+                if (input <= skillPoints)
+                {
+                    skillPoints -= input;
+                    switch (i)
+                    {
+                        case 0:
+                            atk += input;
+                            break;
+
+                        case 1:
+                            def += input;
+                            break;
+
+                        case 2:
+                            spd += input;
+                            break;
+
+                        case 3:
+                            agi += input;
+                            break;
+
+                    }
+                }
+                else
+                {
+                    i--;
+                }
+                Console.Clear();
+            }
+            level = calcLevel();
+            calcHP();
         }
 
     }
