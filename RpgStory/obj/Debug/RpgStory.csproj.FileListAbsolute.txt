@@ -10,3 +10,6 @@ G:\Block 2\Project\RpgStory\RpgStory\obj\Debug\RpgStory.pdb
 G:\Block 2\Project\RpgStory\RpgStory\bin\Debug\RpgStory.exe
 G:\Block 2\Project\RpgStory\RpgStory\bin\Debug\RpgStory.pdb
 G:\Block 2\Project\RpgStory\RpgStory\obj\Debug\RpgStory.csprojResolveAssemblyReference.cache
+C:\Users\Andy\Source\Repos\RPG\RpgStory\bin\Debug\RpgStory.exe.config
+C:\Users\Andy\Source\Repos\RPG\RpgStory\obj\Debug\RpgStory.exe
+C:\Users\Andy\Source\Repos\RPG\RpgStory\obj\Debug\RpgStory.pdb
