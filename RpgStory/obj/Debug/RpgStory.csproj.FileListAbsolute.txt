@@ -1,0 +1,12 @@
+E:\Block 2\Project\RpgStory\RpgStory\bin\Debug\RpgStory.exe.config
+E:\Block 2\Project\RpgStory\RpgStory\bin\Debug\RpgStory.exe
+E:\Block 2\Project\RpgStory\RpgStory\bin\Debug\RpgStory.pdb
+E:\Block 2\Project\RpgStory\RpgStory\obj\Debug\RpgStory.csprojResolveAssemblyReference.cache
+E:\Block 2\Project\RpgStory\RpgStory\obj\Debug\RpgStory.exe
+E:\Block 2\Project\RpgStory\RpgStory\obj\Debug\RpgStory.pdb
+G:\Block 2\Project\RpgStory\RpgStory\bin\Debug\RpgStory.exe.config
+G:\Block 2\Project\RpgStory\RpgStory\obj\Debug\RpgStory.exe
+G:\Block 2\Project\RpgStory\RpgStory\obj\Debug\RpgStory.pdb
+G:\Block 2\Project\RpgStory\RpgStory\bin\Debug\RpgStory.exe
+G:\Block 2\Project\RpgStory\RpgStory\bin\Debug\RpgStory.pdb
+G:\Block 2\Project\RpgStory\RpgStory\obj\Debug\RpgStory.csprojResolveAssemblyReference.cache
