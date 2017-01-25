@@ -24,6 +24,7 @@ namespace RpgStory
             Console.WriteLine("You face {0} their stats are {1} ATK {2} DEF {3} SPD {4} AGI",firstFight.Name,firstFight.ATK,firstFight.DEF,firstFight.SPD,firstFight.AGI);
 
             fightSequence(player, firstFight);
+            player.removeWeapon(player.Wep);
         }
 
         private static Player characterBuilder(int skillPoints)
@@ -33,73 +34,48 @@ namespace RpgStory
             int spd = 0;
             int agi = 0;
             string name = "";
-            bool doCheck = true;
+            string[] statNames = { "Attack", "Defence", "Speed", "Agility" };
             Console.WriteLine("What is your name?");
             name = Console.ReadLine();
             Console.Clear();
-            while (skillPoints > 0) 
+            for (int i = 0; i < 4; i++)
             {
-                while (doCheck)
+                if(skillPoints == 0)
                 {
-                    Console.WriteLine("You have {0} skill points to spend, Spend them wisely", skillPoints);
-                    Console.WriteLine("How many skill points would you like in Attack?");
-                    atk = Convert.ToInt16(Console.ReadLine());
-                    if (atk <= skillPoints)
+                    break;
+                }
+                Console.WriteLine("You have {0} skill points to spend, Spend them wisely", skillPoints);
+                Console.WriteLine("How many skill points would you like in {0}",statNames[i]);
+                int input = Convert.ToInt16(Console.ReadLine());
+                if (input <= skillPoints)
+                {
+                    skillPoints -= input;
+                    switch(i)
                     {
-                        skillPoints -= atk;
-                        if (skillPoints == 0)
+                        case 0:
+                            atk = input;
                             break;
-                        doCheck = false;
-                    }
-                }
-                doCheck = true;
-                Console.Clear();
-                while (doCheck)
-                {
-                    if (skillPoints == 0)
-                        break;
-                    Console.WriteLine("You have {0} skill points remaing", skillPoints);
-                    Console.WriteLine("How many skill points would you like in Defence?");
-                    def = Convert.ToInt16(Console.ReadLine());
-                    if (def <= skillPoints)
-                    {
-                        skillPoints -= def;
-                        doCheck = false;
-                    }
-                }
-                doCheck = true;
-                Console.Clear();
-                while (doCheck)
-                {
-                    if (skillPoints == 0)
-                        break;
-                    Console.WriteLine("You have {0} skill points remaing", skillPoints);
-                    Console.WriteLine("How many skill points would you like in Speed?");
-                    spd = Convert.ToInt16(Console.ReadLine());
-                    if (spd <= skillPoints)
-                    {
-                        skillPoints -= spd;
-                        doCheck = false;
-                    }
-                }
-                doCheck = true;
-                Console.Clear();
-                while (doCheck)
-                {
-                    if (skillPoints == 0)
-                        break;
-                    Console.WriteLine("You have {0} skill points remaing", skillPoints);
-                    Console.WriteLine("How many skill points would you like in Agility?");
-                    agi = Convert.ToInt16(Console.ReadLine());
-                    if (agi <= skillPoints)
-                    {
-                        skillPoints -= agi;
-                        doCheck = false;
-                    }
-                }
-                Console.Clear();
 
-            } 
+                        case 1:
+                            def = input;
+                            break;
+
+                        case 2:
+                            spd = input;
+                            break;
+
+                        case 3:
+                            agi = input;
+                            break;
+
+                    }
+                }else
+                {
+                    i--;
+                }
+                Console.Clear();
+            }
+            
             return new Player(atk,def,spd,agi,name);
         }
 

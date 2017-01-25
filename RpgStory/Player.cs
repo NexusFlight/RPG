@@ -80,6 +80,14 @@ namespace RpgStory
                 agi += weapon.AGI;
             }
         }
+        public void removeWeapon(Weapon weapon)
+        {
+            atk -= weapon.ATK;
+            def += weapon.DEF;
+            spd += weapon.SPD;
+            agi += weapon.AGI;
+            wep = null;
+        }
 
     }
 }
