@@ -19,7 +19,7 @@ namespace RpgStory
             Console.WriteLine("Hello {0} you are level {5} and you have {1} ATK {2} DEF {3} SPD {4} AGI",player.Name,player.ATK,player.DEF,player.SPD,player.AGI,player.Level);
             player.giveWeapon(new Weapon(2, 0, 0, 0, "Doom"));
             Console.WriteLine("You equpied {0} This has a Bonus ATK of {1} your total ATK is {2}",player.Wep.Name,player.Wep.ATK,player.ATK);
-            Enemy firstFight = enemyGenerator(player.Level);
+            Enemy firstFight = enemyGenerator(player.Level,"Tester");
 
             Console.WriteLine("You face {0} their stats are {1} ATK {2} DEF {3} SPD {4} AGI",firstFight.Name,firstFight.ATK,firstFight.DEF,firstFight.SPD,firstFight.AGI);
 
@@ -103,7 +103,7 @@ namespace RpgStory
             return new Player(atk,def,spd,agi,name);
         }
 
-        private static Enemy enemyGenerator(int Level)
+        private static Enemy enemyGenerator(int Level,string name)
         {
             int atk = 0;
             int def = 0;
@@ -111,7 +111,6 @@ namespace RpgStory
             int agi = 0;
             Random rand = new Random();
             int skillPoints = Level * 6;
-            string name = "Tester";
             atk = rand.Next(1,skillPoints / 2);
             skillPoints -= atk;
             def = rand.Next(1,skillPoints / 2);
