@@ -86,7 +86,6 @@ namespace RpgStory
         public void levelUp(int skillPoints)//same as the characterBuilder in player apart from it doesnt reset the name
         {
             string[] statNames = { "Attack", "Defence", "Speed", "Agility" };
-            Console.Clear();
             for (int i = 0; i < 4; i++)
             {
                 if (skillPoints == 0)

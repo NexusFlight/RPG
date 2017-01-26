@@ -13,7 +13,8 @@ namespace RpgStory
             int skillPoints = 6;
             Console.Title = "Runes Of The Dead";
             Console.WriteLine("Welcome To the Runes of The Dead!");
-            Weapon[] weapons = new Weapon[10];
+            WeaponStore weaponStore = new WeaponStore();
+            Weapon[] weapons = weaponStore.createWeaponStore();
             
             Player player = characterBuilder(skillPoints);//run characterBuilder to return Player object for future use.
 
@@ -29,6 +30,8 @@ namespace RpgStory
 
             player.giveWeapon(new Weapon(4, 0, 0, 0, "DoomShroom"));//Testing giveWeapons remove previous weapon.
             Console.WriteLine("You equpied {0} This has a Bonus ATK of {1} your total ATK is {2}", player.Wep.Name, player.Wep.ATK, player.ATK);
+
+            Console.ReadLine();
         }//end main
 
         private static Player characterBuilder(int skillPoints)
@@ -108,10 +111,14 @@ namespace RpgStory
             string action = "";
             bool takeDamage = true;
             bool fighting = true;
+            bool levelUp = true;
             Random rand = new Random();
             while (fighting)
             {
-                
+                if (player.HP <= 0 || enemy.HP <= 0)//if the player or enemy has 0 or less health then break the loop.
+                {
+                    break;
+                }//end if
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("Fight    Dodge       Search      Run");
                 action = Console.ReadLine().ToLowerInvariant();
@@ -157,7 +164,12 @@ namespace RpgStory
                             {
                                 fighting = false;
                                 Console.WriteLine("You Coward, You Ran!");
+                                levelUp = false;
                             }//end if
+                            else
+                            {
+                                Console.WriteLine("You Failed to Run");
+                            }//end else if
                         }//end else if
                         else
                         {
@@ -165,11 +177,7 @@ namespace RpgStory
                         }//end if statement
                         break;
                 }//end switch
-                if (player.HP <= 0 || enemy.HP <= 0)
-                {
-                    fighting = false;
-                    takeDamage = false;
-                }//end if
+                
                 if (takeDamage)
                 {
                     enemy.giveDamage(player);
@@ -180,7 +188,11 @@ namespace RpgStory
 
             if(player.HP > 0)//if the player won give the player the levelUp options
             {
-                player.levelUp(6);//gives the user 6 skill points to spend
+                if (levelUp)//if they didn't run then they get a level up
+                {
+                    Console.WriteLine("You defeated {0} You have leveled up!",enemy.Name);
+                    player.levelUp(6);//gives the user 6 skill points to spend
+                }//end if
             }//end if
             else
             {
