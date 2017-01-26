@@ -15,13 +15,13 @@ namespace RpgStory
             Console.WriteLine("Welcome To the Runes of The Dead!");
             WeaponStore weaponStore = new WeaponStore();
             Weapon[] weapons = weaponStore.createWeaponStore();
-            
-            Player player = characterBuilder(skillPoints);//run characterBuilder to return Player object for future use.
+
+            Player player = new Player();
 
             Console.WriteLine("Hello {0} you are level {5} and you have {1} ATK {2} DEF {3} SPD {4} AGI {6} HP",player.Name,player.getAttackUnmod(),player.DEF,player.SPD,player.AGI,player.Level,player.HP);
             player.giveWeapon(weapons[0]);//create a new Weapon object with stats and give to Player objec
             Console.WriteLine("You equipped {0} This has a Bonus ATK of {1} your total ATK is {2}", player.Wep.Name,player.Wep.ATK,player.ATK);
-            Enemy firstFight = enemyGenerator(player.Level,"Tester");//run enemyGenerator to create a Enemy object of equal level to player and name it tester
+            Enemy firstFight = new Enemy(player.Level,"Tester");//run enemyGenerator to create a Enemy object of equal level to player and name it tester
 
             Console.WriteLine("You face {0} their stats are {1} ATK {2} DEF {3} SPD {4} AGI",firstFight.Name,firstFight.ATK,firstFight.DEF,firstFight.SPD,firstFight.AGI);
 
@@ -33,17 +33,6 @@ namespace RpgStory
 
             Console.ReadLine();
         }//end main
-
-        private static Player characterBuilder(int skillPoints)
-        {
-            Player player = new Player();//creates a player and runs the Level up command on construct.
-            return player;
-        }//end characterBuilder
-
-        private static Enemy enemyGenerator(int Level,string name)
-        {
-            return new Enemy(Level,"Tester");//return enemy object with computer determined stats
-        }//end enemyGenerator
 
         private static void fightSequence(Player player, Enemy enemy)
         {
