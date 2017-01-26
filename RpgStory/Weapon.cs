@@ -8,24 +8,22 @@ namespace RpgStory
 {
     class Weapon
     {
-        private int atk;
-        public int ATK { get { return atk; } private set { } }
-        private int def;
-        public int DEF { get { return def; } private set { } }
-        private int spd;
-        public int SPD { get { return spd; } private set { } }
-        private int agi;
-        public int AGI { get { return agi; } private set { } }
-        private string name;
-        public string Name { get { return name; } private set { } }
+
+        public int ATK { get; private set; }
+        public int DEF { get; private set; }
+        public int SPD { get; private set; }
+        public int AGI { get; private set; }
+        public int HP { get; private set; }
+        public int Level { get; private set; }
+        public string Name { get; private set; }
 
         public Weapon(int atki, int defi, int spdi, int agii, string namei)
         {
-            atk = atki;
-            def = defi;
-            spd = spdi;
-            agi = agii;
-            name = namei;
+            ATK = atki;
+            DEF = defi;
+            SPD = spdi;
+            AGI = agii;
+            Name = namei;
         }
     }
 }

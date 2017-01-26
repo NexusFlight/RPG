@@ -49,7 +49,7 @@ namespace RpgStory
                 }
                 Console.WriteLine("You have {0} skill points to spend, Spend them wisely", skillPoints);
                 Console.WriteLine("How many skill points would you like in {0}",statNames[i]);
-                int input = Convert.ToInt16(Console.ReadLine());
+                int input = Convert.ToInt32(Console.ReadLine());
                 if (input <= skillPoints)
                 {
                     skillPoints -= input;
@@ -96,7 +96,7 @@ namespace RpgStory
             skillPoints -= def;
             spd = rand.Next(1,skillPoints / 2);
             skillPoints -= spd;
-            agi = rand.Next(1,skillPoints / 1);
+            agi = rand.Next(1,skillPoints);
             skillPoints -= agi;
             return new Enemy(atk, def, spd, agi, name);
         }
