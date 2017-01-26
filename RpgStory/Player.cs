@@ -17,6 +17,15 @@ namespace RpgStory
         public string Name { get; private set; }
         public Weapon Wep { get; private set; }
 
+        public Player()//allows for a neat character builder by getting the class it self to set the variables.
+        {
+            string[] statNames = { "Attack", "Defence", "Speed", "Agility" };
+            Console.WriteLine("What is your name?");
+            Name = Console.ReadLine();
+            Console.Clear();
+            levelUp(6);
+        }//end player Constructor
+
         public Player(int atki, int defi, int spdi, int agii, string namei)
         {
             ATK = atki;//sets the ATK of the player when the player is created
@@ -125,7 +134,7 @@ namespace RpgStory
                 Console.Clear();
             }//end for
             Level = calcLevel();
-            calcHP();
+            HP = calcHP();
         }//end levelUp
 
         public int getAttackUnmod()
