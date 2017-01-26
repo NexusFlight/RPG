@@ -15,13 +15,13 @@ namespace RpgStory
             WeaponStore weaponStore = new WeaponStore();
             Weapon[] weapons = weaponStore.createWeaponStore();
 
-            Player player = new Player();
-
+            Player player = new Player();//create a new player and use the constructor to get all the stats
             Console.WriteLine("Hello {0} you are level {5} and you have {1} ATK {2} DEF {3} SPD {4} AGI {6} HP",player.Name,player.getAttackUnmod(),player.DEF,player.SPD,player.AGI,player.Level,player.HP);
-            player.giveWeapon(weapons[0]);//create a new Weapon object with stats and give to Player objec
-            Console.WriteLine("You equipped {0} This has a Bonus ATK of {1} your total ATK is {2}", player.Wep.Name,player.Wep.ATK,player.ATK);
-            Enemy firstFight = new Enemy(player.Level,"Tester");//run enemyGenerator to create a Enemy object of equal level to player and name it tester
 
+            player.giveWeapon(weapons[0]);//create a new Weapon object with stats and give to Player object
+            Console.WriteLine("You equipped {0} This has a Bonus ATK of {1} your total ATK is {2}", player.Wep.Name,player.Wep.ATK,player.ATK);
+
+            Enemy firstFight = new Enemy(player.Level,"Tester");//create a Enemy object of equal level to player and name it tester
             Console.WriteLine("You face {0} their stats are {1} ATK {2} DEF {3} SPD {4} AGI",firstFight.Name,firstFight.ATK,firstFight.DEF,firstFight.SPD,firstFight.AGI);
 
             fightSequence(player, firstFight);//run fightSequence with the Player object and fightFight object

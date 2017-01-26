@@ -64,7 +64,7 @@ namespace RpgStory
         {
             if (Wep != null)//if they have a weapon already remove it and start again.
             {
-                removeWeapon(Wep);
+                removeWeapon();
             }//end if
             Wep = weapon;
             addWeapon(Wep);
@@ -83,12 +83,12 @@ namespace RpgStory
             AGI += weapon.AGI;
         }//end addWeapon
 
-        public void removeWeapon(Weapon weapon)
+        public void removeWeapon()
         {
-            ATK -= weapon.ATK;
-            DEF -= weapon.DEF;
-            SPD -= weapon.SPD;
-            AGI -= weapon.AGI;
+            ATK -= Wep.ATK;
+            DEF -= Wep.DEF;
+            SPD -= Wep.SPD;
+            AGI -= Wep.AGI;
             Wep = null;
         }//end removeWeapon
 
