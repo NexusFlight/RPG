@@ -10,7 +10,6 @@ namespace RpgStory
     {
         static void Main(string[] args)
         {
-            int skillPoints = 6;
             Console.Title = "Runes Of The Dead";
             Console.WriteLine("Welcome To the Runes of The Dead!");
             WeaponStore weaponStore = new WeaponStore();
