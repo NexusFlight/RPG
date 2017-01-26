@@ -65,7 +65,7 @@ namespace RpgStory
                         break;
 
                     case "dodge":
-                        if(rand.Next(player.SPD*4) < player.SPD)
+                        if(rand.Next(player.AGI*4) < player.AGI)
                         {
                             takeDamage = false;
                             Console.WriteLine("You Dodge The Attack");
