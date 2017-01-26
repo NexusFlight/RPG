@@ -25,30 +25,30 @@ namespace RpgStory
             AGI = agii;
             HP = calcHP();
             Name = namei;
-        }
+        }//end Enemy Constructor
 
 
 
         private int calcHP()
         {
             return DEF * 5;
-        }
+        }//end calcHP
 
         public void takeDamage(int damage)
         {
             if (damage > DEF)
             {
                 HP -= damage - DEF;
-            }
+            }//end if
             else
             {
                 HP -= 1;
-            }
-        }
+            }//end else if
+        }//end takeDamage
 
         public void giveDamage(Player player)
         {
             player.takeDamage(ATK);
-        }
-    }
-}
+        }//end giveDamage
+    }//end class
+}//end namespace

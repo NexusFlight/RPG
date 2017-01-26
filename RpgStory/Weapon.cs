@@ -24,6 +24,6 @@ namespace RpgStory
             SPD = spdi;
             AGI = agii;
             Name = namei;
-        }
-    }
-}
+        }//end Weapon Contructor
+    }//end class
+}//end namespace
