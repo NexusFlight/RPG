@@ -6,20 +6,13 @@ using System.Threading.Tasks;
 
 namespace RpgStory
 {
-    class Player
+    class Player : Character
     {
-        public int ATK { get; private set; }//creates a public readable Int ATK but only allows this class to set the values.
-        public int DEF { get; private set; }
-        public int SPD { get; private set; }
-        public int AGI { get; private set; }
-        public int HP { get; private set; }
-        public int Level { get; private set; }
-        public string Name { get; private set; }
+        
         public Weapon Wep { get; private set; }
 
         public Player()//allows for a neat character builder by getting the class it self to set the variables.
         {
-            string[] statNames = { "Attack", "Defence", "Speed", "Agility" };
             Console.WriteLine("What is your name?");
             Name = Console.ReadLine();
             Console.Clear();
@@ -37,29 +30,7 @@ namespace RpgStory
             Level = calcLevel();
         }//end Player Constructor
 
-        private int calcHP()
-        {
-            return DEF * 5 + 1;//ensures the player has atleast 1hp
-        }//end calcHP
-
-        private int calcLevel()
-        {
-            int lev = (ATK + DEF + SPD + AGI) / 6;//as 6 is the standard skill point set then a level is however many skillpoints / 6
-            return lev;
-        }//end calcLevel
-
-        public void takeDamage(int damage)
-        {
-            if (damage > DEF)//if the damage is greater than defence then take defence away from damage else only take 1 hp
-            {
-                HP -= damage - DEF; 
-            }//end if
-            else
-            {
-                HP -= 1;
-            }//end else if
-        }//end takeDamage
-
+       
         public void giveWeapon(Weapon weapon)
         {
             if (Wep != null)//if they have a weapon already remove it and start again.
