@@ -129,5 +129,17 @@ namespace RpgStory
             calcHP();
         }
 
+        public int getAttackUnmod()
+        {
+            if (Wep != null)
+            {
+                return ATK - Wep.ATK;
+            }
+            else
+            {
+                return ATK;
+            }
+        }
+
     }
 }
