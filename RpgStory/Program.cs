@@ -124,6 +124,9 @@ namespace RpgStory
             else
             {
                 Console.WriteLine("You are DEAD!");
+                Console.WriteLine("Press Enter To Exit");
+                Console.ReadLine();
+                Environment.Exit(0);
             }//end else if
         }//end fightSequence
 
