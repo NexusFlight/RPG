@@ -1,0 +1,13 @@
+You Awake in a dungeon
+There is a Guard Standing in the corner
+He heard your breathing change
+He turns to face you
+"We have waited for you to awake for your Execution!"
+/F You encounter /N Nauticus N/
+
+You notice the walls of your cell are made of red throbbing veins!
+You find A Stone Sword!
+/W /N 0 N/
+You came to a split path
+What route do you take?
+/D Left or Right D/

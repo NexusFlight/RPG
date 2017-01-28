@@ -29,7 +29,7 @@ namespace RpgStory
                 switch (action)
                 {
                     case "fight":
-                        if (rand.Next(player.SPD * 2) < player.SPD)//check if the random genrator has created a number(SPD*2) less than the players SPD
+                        if (rand.Next(player.SPD) < player.SPD)//check if the random genrator has created a number(SPD*2) less than the players SPD
                         {
                             player.giveDamage(enemy);//pass giveDamage the Enemy object to damage
                             Console.WriteLine("Enemy HP is {0}", enemy.HP);
@@ -53,6 +53,10 @@ namespace RpgStory
                         break;
 
                     case "search":
+                        if(rand.Next(5) == 1)
+                        {
+
+                        }
                         break;
 
                     case "run":

@@ -12,8 +12,6 @@ namespace RpgStory
         {
             Console.Title = "Runes Of The Dead";
             Console.WriteLine("Welcome To the Runes of The Dead!");
-            WeaponStore weaponStore = new WeaponStore();
-            Weapon[] weapons = weaponStore.createWeaponStore();
 
             Story story = new Story();
 
