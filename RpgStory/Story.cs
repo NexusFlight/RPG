@@ -44,20 +44,20 @@ namespace RpgStory
         }
         private string removeCommands(string s)
         {
-            string worded = s.Replace("/F ", "");
-            worded = worded.Replace("/N ", "");
-            worded = worded.Replace(" N/", "");
-            worded = worded.Replace("/D", "");
-            worded = worded.Replace("D/", "");
+            s = s.Replace("/F ", "");
+            s = s.Replace("/N ", "");
+            s = s.Replace(" N/", "");
+            s = s.Replace("/D", "");
+            s = s.Replace("D/", "");
             if (s.StartsWith("/W"))
             {
-                worded = "";
+                s = "";
             }
             if (s.StartsWith("/D"))
             {
-                worded = "";
+                s = "";
             }
-            return worded;
+            return s;
         }
 
         private string getVariable(string s,string command)
@@ -69,8 +69,10 @@ namespace RpgStory
 
         private void beginStory()
         {
-            foreach(string s in story)
+            for (int i = 0; i < story.GetUpperBound(0)+1; i++)
             {
+
+                string s = story[i];
                 string line = removeCommands(s);
                 if (line != "")
                 {
