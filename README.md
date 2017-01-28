@@ -9,6 +9,6 @@ Story.txt lives in C:/dev/ <br/>
 /W gives weapon from the weapons array in WeaponStore using /N *Array Location* /N <br/>
 /D takes the First and the Last word as a check for what the user inputs <br/>
 e.g. <br/>
-/D Left Or Right <br/>
+/D Left Or Right D/ <br/>
 it displays Left Or Right <br/>
 then you can type in left or right (case ignored)<br/>
